@@ -1,9 +1,10 @@
 const express = require('express')
 const router = express.Router()
-const { upload } = require('../helper.js/fileHelper')
+const { upload } = require('../helper/fileHelper')
 const { singleFileUpload, getallSingleFiles } = require('../controllers/fileUploadControler')
 
 router.post('/singleFile', upload.single('file'), singleFileUpload)
-router.get('/getSingleFiles', getallSingleFiles);
+router.get('/getAllSingleFiles', getallSingleFiles);
+router.get('/getSingleFiles/:name', getallSingleFiles);
 
 module.exports = { routes: router }
